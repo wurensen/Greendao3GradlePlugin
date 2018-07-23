@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    // 基于build
+    compileOnly 'com.android.tools.build:gradle:3.1.3'
+    // 依赖greendao插件
+    implementation 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+}
+
+group = 'com.lancewu'
+version = '1.0.0'
+project.archivesBaseName = 'greendao-gradle-plugin'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // 发布到本地路径直接测试
+            repository(url:uri('../repo'))
+        }
+    }
+    doLast {
+        // 删除生成的build/lib文件夹
+        delete libsDir
+    }
+}
