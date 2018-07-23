@@ -10,19 +10,8 @@ dependencies {
     implementation 'org.greenrobot:greendao-gradle-plugin:3.2.2'
 }
 
-group = 'com.lancewu'
-version = '1.0.0'
-project.archivesBaseName = 'greendao-gradle-plugin'
+// 发布到本地测试用
+//apply from: 'publishLocal.gradle'
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            // 发布到本地路径直接测试
-            repository(url:uri('../repo'))
-        }
-    }
-    doLast {
-        // 删除生成的build/lib文件夹
-        delete libsDir
-    }
-}
+// 引用发布脚本
+apply from: 'bintray.gradle'
