@@ -8,10 +8,10 @@ buildscript {
 //            url uri('./repo')
 //        }
         // 直接引入地址，等jcenter审核成功可去掉该依赖
-        maven {
-            url 'https://dl.bintray.com/wrs/maven'
-
-        }
+//        maven {
+//            url 'https://dl.bintray.com/wrs/maven'
+//
+//        }
         google()
         jcenter()
     }
